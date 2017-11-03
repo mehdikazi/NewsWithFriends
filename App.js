@@ -1,14 +1,18 @@
 import React from 'react';
+import { FacebookSelector } from './react-reactions/src/components/facebook/FacebookSelector.js';
 
 class App extends React.Component {
 
    constructor() {
      super();
      this.state = {
-       selected: ''
+       selected: '',
+       isOpen: false,
      };
      this.selectText = this.selectText.bind(this);
      this.onMouseUp = this.onMouseUp.bind(this);
+     this.toggle = this.toggle.bind(this);
+     this.getReactions = this.getReactions.bind(this);
    }
 
   selectText() {
@@ -19,7 +23,22 @@ class App extends React.Component {
    }
 
    onMouseUp() {
+     this.setState({
+       isOpen: true,
+     });
      this.selectText();
+   }
+
+   toggle() {
+     this.setState({
+       isOpen: !this.state.isOpen,
+     });
+   }
+
+   getReactions() {
+      return (
+        <FacebookSelector />
+      )
    }
 
    render() {
@@ -36,6 +55,7 @@ class App extends React.Component {
              letterSpacing: '0.05em',
              lineHeight: '1.5em',
          }}>
+             {this.getReactions()}
              <div style={{
                textIndent: 50,
              }}>
