@@ -1,3 +1,9 @@
+var webpack = require('webpack');
+var path = require('path');
+
+var BUILD_DIR = path.resolve(__dirname, './');
+var APP_DIR = path.resolve(__dirname, './');
+
 const config = {
    entry: './main.js',
 
@@ -11,18 +17,34 @@ const config = {
       port: 8080
    },
 
-   module: {
-      loaders: [
-         {
-            test: /\.jsx?$/,
-            exclude: /node_modules/,
-            loader: 'babel-loader',
+   resolve: {
+       mainFields: ["browser",  "main"]
+   },
 
-            query: {
-               presets: ['es2015', 'react']
-            }
+   module: {
+     loaders: [
+
+       {
+         test: /plugin\.css$/,
+         loaders: [
+           'style', 'css',
+         ],
+       },
+
+       {
+         test: /\.(js|jsx)$/,
+         include: APP_DIR,
+         loader: 'babel-loader',
+         query: {
+           presets: ['react']
          }
-      ]
+       },
+
+       {
+         test: /\.json$/,
+         loader: "json-loader"
+     }
+     ]
    }
 }
 

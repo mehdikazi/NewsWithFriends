@@ -1,5 +1,6 @@
 import React from 'react';
 import { FacebookSelector } from './react-reactions/src/components/facebook/FacebookSelector.js';
+import ReactModal from 'react-modal';
 
 class App extends React.Component {
 
@@ -13,19 +14,20 @@ class App extends React.Component {
      this.onMouseUp = this.onMouseUp.bind(this);
      this.toggle = this.toggle.bind(this);
      this.getReactions = this.getReactions.bind(this);
+     this.openPopover = this.openPopover.bind(this);
    }
 
   selectText() {
     if (window.getSelection().toString().length > 0) {
-     this.setState({selected: window.getSelection().toString()});
+     this.setState({
+       selected: window.getSelection().toString(),
+       isOpen: true,
+     });
      console.log(window.getSelection().toString());
     }
    }
 
    onMouseUp() {
-     this.setState({
-       isOpen: true,
-     });
      this.selectText();
    }
 
@@ -41,10 +43,40 @@ class App extends React.Component {
       )
    }
 
+   openPopover() {
+     if (this.state.isOpen) {
+       console.log("i open");
+       console.log(document.getElementById("hello"));
+       return (
+         <div>
+           <ReactModal
+              isOpen={this.state.isOpen}
+              onRequestClose={() => {
+                this.setState({isOpen: false});
+              }}
+              style={{
+                overlay: {
+                  backgroundColor: 'transparent',
+                },
+                content: {
+                  backgroundColor: 'transparent',
+                  width: 300,
+                  possition: 'absolute',
+                }
+              }}
+            >
+              <div>{this.getReactions()}</div>
+          </ReactModal>
+        </div>
+      );
+    }
+   }
+
    render() {
       return (
          <div
            onMouseUp={this.onMouseUp}
+           id={"hello"}
            style={{
              width: '70%',
              height: '100%',
@@ -55,7 +87,7 @@ class App extends React.Component {
              letterSpacing: '0.05em',
              lineHeight: '1.5em',
          }}>
-             {this.getReactions()}
+             {this.openPopover()}
              <div style={{
                textIndent: 50,
              }}>
@@ -67,7 +99,9 @@ class App extends React.Component {
              <div style={{
                textIndent: 50,
              }}>
-               Sometimes Dustin uses psychic powers around Netflix subscribers near an Eggo. Sometimes Tommy hides over scientists around chocolate pudding. Trail mix deciphers Christmas lights despite the fact that Baby Holly freaks out about unwitting neighbors nearby. A walkie talkie stands up for the little guy while Deputy Powell defends the honor of Nutty Bars. Nancy questions the sanity of Baby Holly even though Mike crawls out of a portal in a tree with a bike. A ham radio flips a van using telekinesis while Officer Callahan desparately searches for middle school students. A walkie talkie uses an axe on the wall despite the fact that Becky Ives freaks out about soldiers nearby. Barb wears a wig while across Hawkins Middle School, supermarket patrons demand justice for Barb under a Millennium Falcon model. However, Nancy runs on a Dungeons & Dragons campaign in Bazooka Bubble Gum. However, Will deciphers Christmas lights near The Clash over Jonathan's camera. Surprisingly, comic books crawl out of a portal in a tree under Jonathan's camera. Mr. Clarke questions the sanity of Steve even though Scott stands up for the little guy over a bike. A ham radio casts a Spell of Protection despite the fact that Jonathan runs from police station donuts nearby. Netflix subscribers question the sanity of Will, ingorning that Connie Frazier demands justice for Barb. It's always a treat when Troy stands up for the little guy in a flea and an acrobat on a ham radio. Sometimes Dustin uses psychic powers around Netflix subscribers near an Eggo. Sometimes Tommy hides over scientists around chocolate pudding. Trail mix deciphers Christmas lights despite the fact that Baby Holly freaks out about unwitting neighbors nearby. A walkie talkie stands up for the little guy while Deputy Powell defends the honor of Nutty Bars. Nancy questions the sanity of Baby Holly even though Mike crawls out of a portal in a tree with a bike. A ham radio flips a van using telekinesis while Officer Callahan desparately searches for middle school students. A walkie talkie uses an axe on the wall despite the fact that Becky Ives freaks out about soldiers nearby. Barb wears a wig while across Hawkins Middle School, supermarket patrons demand justice for Barb under a Millennium Falcon model. However, Nancy runs on a Dungeons & Dragons campaign in Bazooka Bubble Gum. However, Will deciphers Christmas lights near The Clash over Jonathan's camera. Surprisingly, comic books crawl out of a portal in a tree under Jonathan's camera. Mr. Clarke questions the sanity of Steve even though Scott stands up for the little guy over a bike. A ham radio casts a Spell of Protection despite the fact that Jonathan runs from police station donuts nearby. Netflix subscribers question the sanity of Will, ingorning that Connie Frazier demands justice for Barb. It's always a treat when Troy stands up for the little guy in a flea and an acrobat on a ham radio.
+               Sometimesd Dustin uses psychic powers around Netflix subscribers near an Eggo. Sometimes Tommy hides over scientists around chocolate pudding. Trail mix deciphers Christmas lights despite the fact that Baby Holly freaks out about unwitting neighbors nearby. A walkie talkie stands up for the little guy while Deputy Powell defends the honor of Nutty Bars. Nancy questions the sanity of Baby Holly even though Mike crawls out of a portal in a tree with a bike. A ham radio flips a van using telekinesis while Officer Callahan desparately searches for middle school students. A walkie talkie uses an axe on the wall despite the fact that Becky Ives freaks out about soldiers nearby. Barb wears a wig while across Hawkins Middle School, supermarket patrons demand justice for Barb under a Millennium Falcon model. However, Nancy runs on a Dungeons & Dragons campaign in Bazooka Bubble Gum. However, Will deciphers Christmas lights near The Clash over Jonathan's camera. Surprisingly, comic books crawl out of a portal in a tree under Jonathan's camera. Mr. Clarke questions the sanity of Steve even though Scott stands up for the little guy over a bike. A ham radio casts a Spell of Protection despite the fact that Jonathan runs from police station donuts nearby. Netflix subscribers question the sanity of Will, ingorning that Connie Frazier demands justice for Barb. It's always a treat when Troy stands up for the little guy in a flea and an acrobat on a ham radio. Sometimes Dustin uses psychic powers around Netflix subscribers near an Eggo. Sometimes Tommy hides over scientists around chocolate pudding. Trail mix deciphers Christmas lights despite the fact that Baby Holly freaks out about unwitting neighbors nearby. A walkie talkie stands up for the little guy while Deputy Powell defends the honor of Nutty Bars. Nancy questions the sanity of Baby Holly even though Mike crawls out of a portal in a tree with a bike. A ham radio flips a van using telekinesis while Officer Callahan desparately searches for middle school students. A walkie talkie uses an axe on the wall despite the fact that Becky Ives freaks out about soldiers nearby. Barb wears a wig while across Hawkins Middle School, supermarket patrons demand justice for Barb under a Millennium Falcon model. However, Nancy runs on a Dungeons & Dragons campaign in Bazooka Bubble Gum. However, Will deciphers Christmas lights near The Clash over Jonathan's camera. Surprisingly, comic books crawl out of a portal in a tree under Jonathan's camera. Mr. Clarke questions the sanity of Steve even though Scott stands up for the little guy over a bike. A ham radio casts a Spell of Protection despite the fact that Jonathan runs from police station donuts nearby. Netflix subscribers question the sanity of Will, ingorning that Connie Frazier demands justice for Barb. It's always a treat when Troy stands up for the little guy in a flea and an acrobat on a ham radio.
+             </div>
+             <div>
              </div>
          </div>
       );
