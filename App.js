@@ -62,6 +62,7 @@ class App extends React.Component {
                   backgroundColor: 'transparent',
                   width: 300,
                   possition: 'absolute',
+                  borderColor: 'transparent',
                 }
               }}
             >
