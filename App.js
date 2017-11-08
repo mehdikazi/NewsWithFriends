@@ -260,6 +260,7 @@ class App extends React.Component {
                    borderRadius: 4,
                    borderWidth: 1,
                    height: 40,
+                   cursor: 'pointer'
                  }}
                >
                 Submit Reactions!
