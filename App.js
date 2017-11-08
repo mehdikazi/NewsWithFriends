@@ -73,7 +73,7 @@ class App extends React.Component {
          'headers': { 'content-type': 'application/json' },
          'credentials': 'same-origin',
          'method': 'PUT',
-         'body': JSON.stringify({ "id": reaction.toString(), "text": this.state[reaction]})
+         'body': JSON.stringify({ "id": reaction.toString(), "text": this.state.selected})
        })
        .then(response => {
          return response.json();
