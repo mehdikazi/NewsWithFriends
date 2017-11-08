@@ -13,7 +13,7 @@ class App extends React.Component {
        lastSelectedRange: '',
        x_pos: 0,
        y_pos: 0,
-       right_pos: 0,
+       center_pos: 0,
        like: [],
        love: [],
        haha: [],
@@ -21,28 +21,27 @@ class App extends React.Component {
        sad: [],
        angry: [],
        centerUser: {
-         like: [],
-         love: [],
-         haha: [],
-         wow: [],
-         sad: [],
-         angry: []
-       },
-       rightUser: {
-         like: [],
-         love: [],
-         haha: [],
-         wow: [],
-         sad: [],
-         angry: []
-       }
+         like: ["Syria would seek foreign aid to help it meet its commitments under the deal", "work to implement the Paris accord must be stepped up if it is to have any chance of success"],
+         love: ["Limit the amount of greenhouse gases", "Enable rich countries to help poorer nations by providing climate finance"],
+         haha: [],
+         wow: ["the U.S. is set to become isolated in its stance on the Paris climate agreement", "US said it would withdraw, but the rules of the agreement state that this cannot be done until 2020"],
+         sad: ["He claimed that the accord would cost the US 6.5 million jobs and $3tn (£2.2tn) in lost GDP - while rival economies like China and India were treated more favourably"],
+         angry: ["while Donald Trump has isolated the United States on the world stage in an embarrassing and dangerous position."]
+       },
+       rightUser: {
+         like: ["stop the temperature of the Earth from rising 2 degrees Celsius above pre-industrial levels"],
+         love: [],
+         haha: [],
+         wow: ["re-enter on terms more favorable for our country", "Paris deal will result in the temperature of the Earth rising three degrees, find a way to fill that gap in commitments caused by Trumps announcement"],
+         sad: [],
+         angry: ["leaving the United States as the only remaining country opposed to the deal after President Trumps June 1 decision to exit from the accord."]
+       }
      };
      this.selectText = this.selectText.bind(this);
      this.onMouseUp = this.onMouseUp.bind(this);
      this.toggle = this.toggle.bind(this);
      this.getReactions = this.getReactions.bind(this);
      this.openPopover = this.openPopover.bind(this);
-     this.modalPlacement = this.modalPlacement.bind(this);
      this.apiCall = this.apiCall.bind(this);
      this.renderArticle = this.renderArticle.bind(this);
    }
@@ -51,12 +50,11 @@ class App extends React.Component {
     if (window.getSelection().toString().length > 0) {
      var a = window.getSelection()
      var rect_window = a.getRangeAt(0).getBoundingClientRect();
-     console.dir(window.getSelection().anchorNode.parentNode);
-     console.log(a.getRangeAt(0).getBoundingClientRect());
+//        commented out for testing purposes -- delete comments in future
+//     console.log(a.getRangeAt(0).getBoundingClientRect());
      this.setState({
        selected: window.getSelection().toString(),
        isOpen: true,
-       x_pos: rect_window.x,
        y_pos: rect_window.y,
        right_pos: rect_window.right,
        lastSelectedRange: window.getSelection().getRangeAt(0),
@@ -89,6 +87,10 @@ class App extends React.Component {
      });
    }
 
+   getLikeCount() {
+    return this.state.like.length
+   }
+
    getReactions() {
       return (
         <FacebookSelector
@@ -105,13 +107,6 @@ class App extends React.Component {
           }}
         />
       )
-   }
-
-   modalPlacement() {
-       const modal_class = document.getElementsByClassName("ReactModal__Content ReactModal__Content--after-open");
-       modal_class.style.position = "absolute";
-       modal_class.style.left = this.state.x_pos+'px';
-       modal_class.style.top = this.state.y_pos+'px';
    }
 
    openPopover() {
@@ -132,10 +127,10 @@ class App extends React.Component {
                   height: 36,
                   width: 260,
                   position: 'absolute',
-                  left: (this.state.x_pos + this.state.right_pos) / 2 + 'px',
-                  // or what I did earlier was just left: this.state.x_pos + 'px',
+                  left: this.state.center_pos - 200 + 'px',
                   top: this.state.y_pos - 90 + 'px',
                   borderColor: 'transparent',
+                  margin: '0 auto'
                 }
               }}
             >
@@ -218,7 +213,20 @@ class App extends React.Component {
    }
 
    render() {
-      return (
+      if (false) {
+        return (
+          <div>
+            like {this.state.like} count: {this.getLikeCount()}
+            love {this.state.love}
+            haha {this.state.haha}
+            wow {this.state.wow}
+            sad {this.state.sad}
+            angry {this.state.angry}
+          </div>
+        );
+      }
+      else {
+        return (
          <div
            onMouseUp={this.onMouseUp}
            id={"hello"}
@@ -231,7 +239,7 @@ class App extends React.Component {
              fontFamily: 'Georgia',
              letterSpacing: '0.05em',
              lineHeight: '1.5em',
-         }}>
+          }}>
              {this.openPopover()}
              {this.renderArticle()}
              <div style={{
@@ -254,7 +262,8 @@ class App extends React.Component {
                </button>
              </div>
          </div>
-      );
+        );
+      }
    }
 }
 
