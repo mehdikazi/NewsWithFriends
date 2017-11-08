@@ -4,7 +4,7 @@ class SmallStats extends React.Component {
 	constructor() {
 		super()
 		this.state = {
-			reaction: ""
+			reactionSet: ["like", "love", "haha", "wow", "sad", "angry"]
 		}
 	}
 
@@ -29,22 +29,17 @@ class SmallStats extends React.Component {
 								width:50,
 								height:50
 							}}
-							onClick = {() => {this.setState({
-								reaction: "sad"
-							})}}
+							onClick={() => {this.props.onClickStatReactions('sad')}}
 							/>
 							<img src="images/next.svg" style={{
 								width:50,
 								height:50
 							}}
-							onClick = {() => {this.setState({
-								reaction: "haha"
-							})}}
+							onClick={() => {this.props.onClickStatReactions('like')}}
 							/>
 						</div>
 						<div>
-							Me: {currState[currState.selected]} bruh
-							{currState.selected}
+							Me: {currState[currState.selected]}
 						<div>
 						</div>
 							Mehdi: {currState.centerUser[currState.selected]}
