@@ -9,8 +9,12 @@ class App extends React.Component {
    constructor() {
      super();
      this.state = {
+<<<<<<< HEAD
        page: true,
        selected: "angry",
+=======
+       selected: false,
+>>>>>>> 2b28db692ef31ef350e540ccd161a05870e6cf25
        isOpen: false,
        lastSelectedRange: '',
        x_pos: 0,
@@ -46,6 +50,7 @@ class App extends React.Component {
      this.openPopover = this.openPopover.bind(this);
      this.apiCall = this.apiCall.bind(this);
      this.renderArticle = this.renderArticle.bind(this);
+     this.onClickStatReactions = this.onClickStatReactions.bind(this);
    }
 
   selectText() {
@@ -210,11 +215,22 @@ class App extends React.Component {
      );
    }
 
+   onClickStatReactions(reaction) {
+     this.setState({
+       selected: reaction
+     });
+   }
+
    render() {
+<<<<<<< HEAD
       if (this.state.page) {
+=======
+      if (true) {
+>>>>>>> 2b28db692ef31ef350e540ccd161a05870e6cf25
         return (
           <SmallStats
             appState={this.state}
+            onClickStatReactions={this.onClickStatReactions}
           />
           );
       }
