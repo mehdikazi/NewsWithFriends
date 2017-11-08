@@ -5,7 +5,10 @@ var BUILD_DIR = path.resolve(__dirname, './');
 var APP_DIR = path.resolve(__dirname, './');
 
 const config = {
-   entry: './main.js',
+   entry: [
+    './main.js',
+    './app.css',
+  ]
 
    output: {
       path:'/',
@@ -23,12 +26,9 @@ const config = {
 
    module: {
      loaders: [
-
        {
-         test: /plugin\.css$/,
-         loaders: [
-           'style', 'css',
-         ],
+         test: /\.css$/,
+         loaders: ["style-loader","css-loader"],
        },
 
        {
