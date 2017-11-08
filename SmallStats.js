@@ -4,13 +4,15 @@ class SmallStats extends React.Component {
 	constructor() {
 		super()
 		this.state = {
+			reaction: "angry"
 		}
 	}
 
 	render() {
 		const currState = this.props.appState
-		const fileName = "images/" + currState.selected + ".svg"
-			if (currState.selected) {
+		const fileName = "images/" + this.state.reaction + ".svg"
+		console.log(this.state.reaction)
+			if (this.state.reaction) {
 				return(
 					<div>
 						<div>
@@ -20,31 +22,35 @@ class SmallStats extends React.Component {
 							}}/>
 						</div>
 						<div>
-							{currState.selected}
+							{this.state.reaction}
 						</div>
-						<button
-							type="button"
-							style={{
-								width: 70,
-								// fontSize: 16,
-								backgroundColor: 'transparent',
-								borderColor: 'black',
-								borderRadius: 4,
-								borderWidth: 1,
-								height: 40,
-								margin: '10 auto'
+						<div>
+							<img src="images/back.svg" style={{
+								width:50,
+								height:50
 							}}
-							>
-						 Next Reaction!
-						</button>
+							onClick = {() => {this.setState({
+								reaction: "sad"
+							})}}
+							/>
+							<img src="images/next.svg" style={{
+								width:50,
+								height:50
+							}}
+							onClick = {() => {this.setState({
+								reaction: "haha"
+							})}}
+							/>
+						</div>
 						<div>
-							Me: {currState[currState.selected]}
+							Me: {currState[this.state.reaction]} bruh
+							{this.state.reaction}
 						<div>
 						</div>
-							Mehdi: {currState.centerUser[currState.selected]}
+							Mehdi: {currState.centerUser[this.state.reaction]}
 						</div>
 						<div>
-							Kamgucci: {currState.rightUser[currState.selected]}
+							Kamgucci: {currState.rightUser[this.state.reaction]}
 						</div>
 					</div>
 				);
