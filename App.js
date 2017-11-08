@@ -2,6 +2,7 @@ import React from 'react';
 import { FacebookSelector } from './react-reactions/src/components/facebook/FacebookSelector.js';
 import ReactModal from 'react-modal';
 
+
 class App extends React.Component {
 
    constructor() {
@@ -9,6 +10,7 @@ class App extends React.Component {
      this.state = {
        selected: '',
        isOpen: false,
+       lastSelectedRange: '',
        x_pos: 0,
        y_pos: 0,
        right_pos: 0,
@@ -57,6 +59,7 @@ class App extends React.Component {
        x_pos: rect_window.x,
        y_pos: rect_window.y,
        right_pos: rect_window.right,
+       lastSelectedRange: window.getSelection().getRangeAt(0),
      });
      console.log(window.getSelection().toString());
     }
@@ -91,6 +94,8 @@ class App extends React.Component {
         <FacebookSelector
           iconSize={32}
           onSelect={(reaction) => {
+            const newNode = document.createElement('mark');
+            this.state.lastSelectedRange.surroundContents(newNode);
             console.log(reaction);
             this.setState({
               reaction: this.state[reaction].push(this.state.selected),
@@ -157,9 +162,11 @@ class App extends React.Component {
          </div>
          <br></br>
 
-         <div style={{
-           textIndent: 50,
-         }}>
+         <div
+           style={{
+             textIndent: 50,
+           }}
+         >
           Nicaragua, the other holdout, signed the deal last month in solidarity with nations already suffering from climate change. Syria took a break on Tuesday from its gruesome six-year civil war to announce plans to sign the Paris climate agreement, leaving the United States as the only country to reject the emissions-cutting deal. The announcement came at the 23rd Conference of the Parties in Bonn, Germany, the world’s biggest climate conference. The non-binding Paris accord, through which signatories pledge to reduce emissions of planet-warming gases over the coming decades, was brokered in 2015, when the annual conference was held in the French capital.
          </div>
          <br></br>
