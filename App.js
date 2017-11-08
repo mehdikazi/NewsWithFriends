@@ -9,6 +9,9 @@ class App extends React.Component {
      this.state = {
        selected: '',
        isOpen: false,
+       x_pos: 0,
+       y_pos: 0,
+       right_pos: 0,
        like: [],
        love: [],
        haha: [],
@@ -37,14 +40,22 @@ class App extends React.Component {
      this.toggle = this.toggle.bind(this);
      this.getReactions = this.getReactions.bind(this);
      this.openPopover = this.openPopover.bind(this);
+     this.modalPlacement = this.modalPlacement.bind(this);
      this.apiCall = this.apiCall.bind(this);
    }
 
   selectText() {
     if (window.getSelection().toString().length > 0) {
+     var a = window.getSelection()
+     var rect_window = a.getRangeAt(0).getBoundingClientRect();
+     console.dir(window.getSelection().anchorNode.parentNode);
+     console.log(a.getRangeAt(0).getBoundingClientRect());
      this.setState({
        selected: window.getSelection().toString(),
        isOpen: true,
+       x_pos: rect_window.x,
+       y_pos: rect_window.y,
+       right_pos: rect_window.right,
      });
      console.log(window.getSelection().toString());
     }
@@ -89,6 +100,13 @@ class App extends React.Component {
         />
       )
    }
+   
+   modalPlacement() {
+       const modal_class = document.getElementsByClassName("ReactModal__Content ReactModal__Content--after-open");
+       modal_class.style.position = "absolute";
+       modal_class.style.left = this.state.x_pos+'px';
+       modal_class.style.top = this.state.y_pos+'px';
+   }
 
    openPopover() {
      if (this.state.isOpen) {
@@ -105,13 +123,22 @@ class App extends React.Component {
                 },
                 content: {
                   backgroundColor: 'transparent',
+                  height: 36,
                   width: 260,
-                  possition: 'absolute',
+                  position: 'absolute',
+                  left: (this.state.x_pos + this.state.right_pos) / 2 + 'px',
+                  // or what I did earlier was just left: this.state.x_pos + 'px',
+                  top: this.state.y_pos - 90 + 'px',
                   borderColor: 'transparent',
                 }
               }}
             >
-              <div>{this.getReactions()}</div>
+              <div 
+                style = {{ 
+                    marginTop: 9,      
+                           }}>
+              {this.getReactions()}
+              </div>
           </ReactModal>
         </div>
       );
