@@ -1,13 +1,14 @@
 import React from 'react';
 import { FacebookSelector } from './react-reactions/src/components/facebook/FacebookSelector.js';
 import ReactModal from 'react-modal';
+import SmallStats from './SmallStats.js'
 
 class App extends React.Component {
 
    constructor() {
      super();
      this.state = {
-       selected: '',
+       selected: 'haha',
        isOpen: false,
        x_pos: 0,
        y_pos: 0,
@@ -17,14 +18,14 @@ class App extends React.Component {
        haha: [],
        wow: [],
        sad: [],
-       angry: [],
+       angry: [" blah1 "],
        centerUser: {
          like: [],
          love: [],
          haha: [],
          wow: [],
          sad: [],
-         angry: []
+         angry: [" blah2 "]
        },
        rightUser: {
          like: [],
@@ -32,7 +33,7 @@ class App extends React.Component {
          haha: [],
          wow: [],
          sad: [],
-         angry: []
+         angry: [" blah3 "]
        }
      };
      this.selectText = this.selectText.bind(this);
@@ -84,10 +85,6 @@ class App extends React.Component {
      this.setState({
        isOpen: !this.state.isOpen,
      });
-   }
-
-   getLikeCount() {
-    return this.state.like.length
    }
 
    getReactions() {
@@ -218,15 +215,11 @@ class App extends React.Component {
    render() {
       if (false) {
         return (
-          <div>
-            like {this.state.like} count: {this.getLikeCount()}
-            love {this.state.love}
-            haha {this.state.haha}
-            wow {this.state.wow}
-            sad {this.state.sad}
-            angry {this.state.angry}
-          </div>
-        );
+          <SmallStats
+            appState={this.state}
+          />
+
+          );
       }
       else {
         return (
@@ -266,7 +259,7 @@ class App extends React.Component {
              </div>
          </div>
         );
-      } 
+      }
    }
 }
 
