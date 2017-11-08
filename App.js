@@ -47,8 +47,8 @@ class App extends React.Component {
     if (window.getSelection().toString().length > 0) {
      var a = window.getSelection()
      var rect_window = a.getRangeAt(0).getBoundingClientRect();
-     console.dir(window.getSelection().anchorNode.parentNode);
-     console.log(a.getRangeAt(0).getBoundingClientRect());
+//        commented out for testing purposes -- delete comments in future
+//     console.log(a.getRangeAt(0).getBoundingClientRect());
      this.setState({
        selected: window.getSelection().toString(),
        isOpen: true,
