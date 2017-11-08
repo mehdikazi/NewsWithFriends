@@ -9,7 +9,7 @@ class App extends React.Component {
    constructor() {
      super();
      this.state = {
-       selected: 'haha',
+       selected: false,
        isOpen: false,
        lastSelectedRange: '',
        x_pos: 0,
@@ -45,6 +45,7 @@ class App extends React.Component {
      this.openPopover = this.openPopover.bind(this);
      this.apiCall = this.apiCall.bind(this);
      this.renderArticle = this.renderArticle.bind(this);
+     this.onClickStatReactions = this.onClickStatReactions.bind(this);
    }
 
   selectText() {
@@ -159,7 +160,7 @@ class App extends React.Component {
              textIndent: 50,
            }}
          >
-          Nicaragua, the other holdout, signed the deal last month in solidarity with nations already suffering from climate change. Syria took a break on Tuesday from its gruesome six-year civil war to announce plans to sign the Paris climate agreement, leaving the United States as the only country to reject the emissions-cutting deal. The announcement came at the 23rd Conference of the Parties in Bonn, Germany, the world’s biggest climate conference. The non-binding Paris accord, through which signatories pledge to reduce emissions of planet-warming gases over the coming decades, was brokered in 2015, when the annual conference was held in the French capital. 
+          Nicaragua, the other holdout, signed the deal last month in solidarity with nations already suffering from climate change. Syria took a break on Tuesday from its gruesome six-year civil war to announce plans to sign the Paris climate agreement, leaving the United States as the only country to reject the emissions-cutting deal. The announcement came at the 23rd Conference of the Parties in Bonn, Germany, the world’s biggest climate conference. The non-binding Paris accord, through which signatories pledge to reduce emissions of planet-warming gases over the coming decades, was brokered in 2015, when the annual conference was held in the French capital.
          </div>
          <br></br>
 
@@ -209,11 +210,18 @@ class App extends React.Component {
      );
    }
 
+   onClickStatReactions(reaction) {
+     this.setState({
+       selected: reaction
+     });
+   }
+
    render() {
-      if (false) {
+      if (true) {
         return (
           <SmallStats
             appState={this.state}
+            onClickStatReactions={this.onClickStatReactions}
           />
 
           );
