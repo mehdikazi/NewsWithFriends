@@ -39,7 +39,10 @@ class App extends React.Component {
 
    getReactions() {
       return (
-        <FacebookSelector />
+        <FacebookSelector
+          iconSize={32}
+          onSelect={(reaction) => {console.log(reaction)}}
+        />
       )
    }
 
@@ -60,7 +63,7 @@ class App extends React.Component {
                 },
                 content: {
                   backgroundColor: 'transparent',
-                  width: 300,
+                  width: 260,
                   possition: 'absolute',
                   borderColor: 'transparent',
                 }
