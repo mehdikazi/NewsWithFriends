@@ -14,7 +14,23 @@ class App extends React.Component {
        haha: [],
        wow: [],
        sad: [],
-       angry: []
+       angry: [],
+       centerUser: {
+         like: [],
+         love: [],
+         haha: [],
+         wow: [],
+         sad: [],
+         angry: []
+       },
+       rightUser: {
+         like: [],
+         love: [],
+         haha: [],
+         wow: [],
+         sad: [],
+         angry: []
+       }
      };
      this.selectText = this.selectText.bind(this);
      this.onMouseUp = this.onMouseUp.bind(this);
