@@ -4,7 +4,7 @@ class SmallStats extends React.Component {
 	constructor() {
 		super()
 		this.state = {
-			reaction: "angry"
+			reaction: ""
 		}
 	}
 

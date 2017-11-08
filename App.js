@@ -9,12 +9,8 @@ class App extends React.Component {
    constructor() {
      super();
      this.state = {
-<<<<<<< HEAD
-       page: true,
-       selected: "angry",
-=======
+       page: false,
        selected: false,
->>>>>>> 2b28db692ef31ef350e540ccd161a05870e6cf25
        isOpen: false,
        lastSelectedRange: '',
        x_pos: 0,
@@ -222,11 +218,7 @@ class App extends React.Component {
    }
 
    render() {
-<<<<<<< HEAD
       if (this.state.page) {
-=======
-      if (true) {
->>>>>>> 2b28db692ef31ef350e540ccd161a05870e6cf25
         return (
           <SmallStats
             appState={this.state}
