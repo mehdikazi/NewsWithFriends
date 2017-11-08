@@ -8,7 +8,7 @@ const config = {
    entry: [
     './main.js',
     './app.css',
-  ]
+  ],
 
    output: {
       path:'/',
