@@ -10,9 +10,9 @@ class SmallStats extends React.Component {
 
 	render() {
 		const currState = this.props.appState;
-		const fileName = "images/" + currState.selected + ".svg";
-		console.log(currState.selected)
-			if (currState.selected) {
+		const fileName = "images/" + currState.reactionSelected + ".svg";
+		console.log(currState.reactionSelected)
+			if (currState.reactionSelected) {
 				return(
 					<div>
 						<div>
@@ -22,7 +22,7 @@ class SmallStats extends React.Component {
 							}}/>
 						</div>
 						<div>
-							{currState.selected}
+							{currState.reactionSelected}
 						</div>
 						<div>
 							<img src="images/back.svg" style={{
@@ -43,14 +43,14 @@ class SmallStats extends React.Component {
 							/>
 						</div>
 						<div>
-							Me: {currState[currState.selected]} bruh
-							{currState.selected}
+							Me: {currState[currState.reactionSelected]} bruh
+							{currState.reactionSelected}
 						<div>
 						</div>
-							Mehdi: {currState.centerUser[currState.selected]}
+							Mehdi: {currState.centerUser[currState.reactionSelected]}
 						</div>
 						<div>
-							Kamgucci: {currState.rightUser[currState.selected]}
+							Kamgucci: {currState.rightUser[currState.reactionSelected]}
 						</div>
 					</div>
 				);
