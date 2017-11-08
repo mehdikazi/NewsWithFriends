@@ -4,14 +4,21 @@ class SmallStats extends React.Component {
 	constructor() {
 		super()
 		this.state = {
-			reaction: ""
+			reactionSet: ["like", "love", "haha", "wow", "sad", "angry"]
 		}
 	}
 
 	render() {
 		const currState = this.props.appState;
+		console.log(currState);
 		const fileName = "images/" + currState.reactionSelected + ".svg";
+		const nextIndex = (this.state.reactionSet.indexOf(currState.reactionSelected) + 1) % 6
+		var prevIndex = (this.state.reactionSet.indexOf(currState.reactionSelected) - 1) % 6
+		if (prevIndex == -1) {
+			prevIndex = 5
+		}
 		console.log(currState.reactionSelected)
+		console.log("curr: " + this.state.reactionSet.indexOf(currState.reactionSelected) + " next: " + nextIndex + " prev: " + prevIndex)
 			if (currState.reactionSelected) {
 				return(
 					<div>
@@ -29,22 +36,18 @@ class SmallStats extends React.Component {
 								width:50,
 								height:50
 							}}
-							onClick = {() => {this.setState({
-								reaction: "sad"
-							})}}
+
+							onClick={() => {this.props.onClickStatReactions(this.state.reactionSet[prevIndex])}}
 							/>
 							<img src="images/next.svg" style={{
 								width:50,
 								height:50
 							}}
-							onClick = {() => {this.setState({
-								reaction: "haha"
-							})}}
+							onClick={() => {this.props.onClickStatReactions(this.state.reactionSet[nextIndex])}}
 							/>
 						</div>
 						<div>
-							Me: {currState[currState.reactionSelected]} bruh
-							{currState.reactionSelected}
+							Me: {currState[currState.reactionSelected]}
 						<div>
 						</div>
 							Mehdi: {currState.centerUser[currState.reactionSelected]}
@@ -73,7 +76,7 @@ class SmallStats extends React.Component {
 							letterSpacing: '0.05em',
 							lineHeight: '1.5em',
 						}}>
-							Reaction Breakdown
+						React Reactions!
 						</div>
 						<div style={{
 							textIndent: 50,

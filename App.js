@@ -99,8 +99,8 @@ class App extends React.Component {
             const newNode = document.createElement(reaction);
             this.state.lastSelectedRange.surroundContents(newNode);
             console.log(reaction);
+            this.state[reaction].push(this.state.selected)
             this.setState({
-              reaction: this.state[reaction].push(this.state.reactionSelected),
               isOpen: false,
             });
             this.apiCall(reaction);
