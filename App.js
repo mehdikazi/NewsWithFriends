@@ -64,8 +64,9 @@ class App extends React.Component {
                 content: {
                   backgroundColor: 'transparent',
                   width: 260,
-                  possition: 'absolute',
+                  position: 'absolute',
                   borderColor: 'transparent',
+                  margin: '0 auto'
                 }
               }}
             >
@@ -77,7 +78,20 @@ class App extends React.Component {
    }
 
    render() {
-      return (
+      if (true) {
+        return (
+          <div>
+            like
+            love
+            haha
+            wow
+            sad
+            angry
+          </div>
+        );
+      }
+      else {
+        return (
          <div
            onMouseUp={this.onMouseUp}
            id={"hello"}
@@ -108,7 +122,8 @@ class App extends React.Component {
              <div>
              </div>
          </div>
-      );
+        );
+      } 
    }
 }
 
