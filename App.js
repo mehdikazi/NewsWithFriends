@@ -1,6 +1,7 @@
 import React from 'react';
 import { FacebookSelector } from './react-reactions/src/components/facebook/FacebookSelector.js';
 import ReactModal from 'react-modal';
+import SmallStats from './SmallStats.js'
 
 
 class App extends React.Component {
@@ -8,7 +9,7 @@ class App extends React.Component {
    constructor() {
      super();
      this.state = {
-       selected: '',
+       selected: 'haha',
        isOpen: false,
        lastSelectedRange: '',
        x_pos: 0,
@@ -19,7 +20,7 @@ class App extends React.Component {
        haha: [],
        wow: [],
        sad: [],
-       angry: [],
+       angry: [" blah1 "],
        centerUser: {
          like: ["Syria would seek foreign aid to help it meet its commitments under the deal", "work to implement the Paris accord must be stepped up if it is to have any chance of success"],
          love: ["Limit the amount of greenhouse gases", "Enable rich countries to help poorer nations by providing climate finance"],
@@ -85,10 +86,6 @@ class App extends React.Component {
      this.setState({
        isOpen: !this.state.isOpen,
      });
-   }
-
-   getLikeCount() {
-    return this.state.like.length
    }
 
    getReactions() {
@@ -215,15 +212,11 @@ class App extends React.Component {
    render() {
       if (false) {
         return (
-          <div>
-            like {this.state.like} count: {this.getLikeCount()}
-            love {this.state.love}
-            haha {this.state.haha}
-            wow {this.state.wow}
-            sad {this.state.sad}
-            angry {this.state.angry}
-          </div>
-        );
+          <SmallStats
+            appState={this.state}
+          />
+
+          );
       }
       else {
         return (
