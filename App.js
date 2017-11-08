@@ -9,12 +9,19 @@ class App extends React.Component {
      this.state = {
        selected: '',
        isOpen: false,
+       like: [],
+       love: [],
+       haha: [],
+       wow: [],
+       sad: [],
+       angry: []
      };
      this.selectText = this.selectText.bind(this);
      this.onMouseUp = this.onMouseUp.bind(this);
      this.toggle = this.toggle.bind(this);
      this.getReactions = this.getReactions.bind(this);
      this.openPopover = this.openPopover.bind(this);
+     this.apiCall = this.apiCall.bind(this);
    }
 
   selectText() {
@@ -25,6 +32,20 @@ class App extends React.Component {
      });
      console.log(window.getSelection().toString());
     }
+   }
+
+   apiCall(reaction) {
+     return (
+       fetch('http://localhost:3000/posts/' + reaction.toString(), {
+         'headers': { 'content-type': 'application/json' },
+         'credentials': 'same-origin',
+         'method': 'PUT',
+         'body': JSON.stringify({ "id": reaction.toString(), "text": this.state[reaction]})
+       })
+       .then(response => {
+         return response.json();
+       })
+     )
    }
 
    onMouseUp() {
@@ -41,15 +62,20 @@ class App extends React.Component {
       return (
         <FacebookSelector
           iconSize={32}
-          onSelect={(reaction) => {console.log(reaction)}}
+          onSelect={(reaction) => {
+            console.log(reaction);
+            this.setState({
+              reaction: this.state[reaction].push(this.state.selected),
+              isOpen: false,
+            });
+            this.apiCall(reaction);
+          }}
         />
       )
    }
 
    openPopover() {
      if (this.state.isOpen) {
-       console.log("i open");
-       console.log(document.getElementById("hello"));
        return (
          <div>
            <ReactModal
