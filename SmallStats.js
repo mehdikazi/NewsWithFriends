@@ -10,9 +10,16 @@ class SmallStats extends React.Component {
 
 	render() {
 		const currState = this.props.appState;
-		const fileName = "images/" + currState.selected + ".svg";
-		console.log(currState.selected)
-			if (currState.selected) {
+		console.log(currState);
+		const fileName = "images/" + currState.reactionSelected + ".svg";
+		const nextIndex = (this.state.reactionSet.indexOf(currState.reactionSelected) + 1) % 6
+		var prevIndex = (this.state.reactionSet.indexOf(currState.reactionSelected) - 1) % 6
+		if (prevIndex == -1) {
+			prevIndex = 5
+		}
+		console.log(currState.reactionSelected)
+		console.log("curr: " + this.state.reactionSet.indexOf(currState.reactionSelected) + " next: " + nextIndex + " prev: " + prevIndex)
+			if (currState.reactionSelected) {
 				return(
 					<div>
 						<div>
@@ -22,30 +29,31 @@ class SmallStats extends React.Component {
 							}}/>
 						</div>
 						<div>
-							{currState.selected}
+							{currState.reactionSelected}
 						</div>
 						<div>
 							<img src="images/back.svg" style={{
 								width:50,
 								height:50
 							}}
-							onClick={() => {this.props.onClickStatReactions('sad')}}
+
+							onClick={() => {this.props.onClickStatReactions(this.state.reactionSet[prevIndex])}}
 							/>
 							<img src="images/next.svg" style={{
 								width:50,
 								height:50
 							}}
-							onClick={() => {this.props.onClickStatReactions('like')}}
+							onClick={() => {this.props.onClickStatReactions(this.state.reactionSet[nextIndex])}}
 							/>
 						</div>
 						<div>
-							Me: {currState[currState.selected]}
+							Me: {currState[currState.reactionSelected]}
 						<div>
 						</div>
-							Mehdi: {currState.centerUser[currState.selected]}
+							Mehdi: {currState.centerUser[currState.reactionSelected]}
 						</div>
 						<div>
-							Kamgucci: {currState.rightUser[currState.selected]}
+							Kamgucci: {currState.rightUser[currState.reactionSelected]}
 						</div>
 					</div>
 				);
@@ -65,7 +73,7 @@ class SmallStats extends React.Component {
 							display: 'flex',
 						}}>
 							<div
-							  onClick={() => {this.props.onClickStatReactions('like')}}
+							  onClick={() => {this.props.onClickStatReactions(this.state.reactionSet[0])}}
 								style={{
 									display: 'flex',
 									alignContent: 'center',

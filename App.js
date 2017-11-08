@@ -11,6 +11,7 @@ class App extends React.Component {
      this.state = {
        page: false,
        selected: false,
+       reactionSelected: false,
        isOpen: false,
        lastSelectedRange: '',
        x_pos: 0,
@@ -21,7 +22,7 @@ class App extends React.Component {
        haha: [],
        wow: [],
        sad: [],
-       angry: [" blah1 "],
+       angry: [],
        centerUser: {
          like: ["Syria would seek foreign aid to help it meet its commitments under the deal", "work to implement the Paris accord must be stepped up if it is to have any chance of success"],
          love: ["Limit the amount of greenhouse gases", "Enable rich countries to help poorer nations by providing climate finance"],
@@ -98,8 +99,8 @@ class App extends React.Component {
             const newNode = document.createElement(reaction);
             this.state.lastSelectedRange.surroundContents(newNode);
             console.log(reaction);
+            this.state[reaction].push(this.state.selected)
             this.setState({
-              reaction: this.state[reaction].push(this.state.selected),
               isOpen: false,
             });
             this.apiCall(reaction);
@@ -213,7 +214,7 @@ class App extends React.Component {
 
    onClickStatReactions(reaction) {
      this.setState({
-       selected: reaction
+       reactionSelected: reaction
      });
    }
 
