@@ -9,10 +9,10 @@ class SmallStats extends React.Component {
 	}
 
 	render() {
-		const currState = this.props.appState
-		const fileName = "images/" + this.state.reaction + ".svg"
-		console.log(this.state.reaction)
-			if (this.state.reaction) {
+		const currState = this.props.appState;
+		const fileName = "images/" + currState.selected + ".svg";
+		console.log(currState.selected)
+			if (currState.selected) {
 				return(
 					<div>
 						<div>
@@ -22,7 +22,7 @@ class SmallStats extends React.Component {
 							}}/>
 						</div>
 						<div>
-							{this.state.reaction}
+							{currState.selected}
 						</div>
 						<div>
 							<img src="images/back.svg" style={{
@@ -43,14 +43,14 @@ class SmallStats extends React.Component {
 							/>
 						</div>
 						<div>
-							Me: {currState[this.state.reaction]} bruh
-							{this.state.reaction}
+							Me: {currState[currState.selected]} bruh
+							{currState.selected}
 						<div>
 						</div>
-							Mehdi: {currState.centerUser[this.state.reaction]}
+							Mehdi: {currState.centerUser[currState.selected]}
 						</div>
 						<div>
-							Kamgucci: {currState.rightUser[this.state.reaction]}
+							Kamgucci: {currState.rightUser[currState.selected]}
 						</div>
 					</div>
 				);
@@ -168,7 +168,6 @@ class SmallStats extends React.Component {
 						</div>
 
 						<div
-						  onClick={() => {this.props.onClickStatReactions('sad')}}
 							style={{
 								cursor: 'pointer',
 								display: 'flex',
@@ -176,6 +175,7 @@ class SmallStats extends React.Component {
 							}}
 						>
 							<div
+							  onClick={() => {this.props.onClickStatReactions('sad')}}
 								style={{
 									display: 'flex',
 									alignContent: 'center',
