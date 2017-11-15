@@ -107,7 +107,7 @@ class App extends React.Component {
             this.setState({
               isOpen: false,
             });
-            this.apiCall(reaction);
+            // this.apiCall(reaction);
           }}
         />
       )
