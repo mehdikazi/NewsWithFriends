@@ -91,6 +91,10 @@ class App extends React.Component {
      });
    }
 
+   componentDidMount() {
+     alert("Try highlighting part of the article!");
+   }
+
    getReactions() {
       return (
         <FacebookSelector
