@@ -139,6 +139,7 @@ class App extends React.Component {
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
+              fontFamily: 'Lato',
             }}>
               How to start:
               <ol>
@@ -184,8 +185,11 @@ class App extends React.Component {
               style={{
                 overlay: {
                   backgroundColor: 'transparent',
+                  fontFamily: 'Lato',
                 },
                 content: {
+               	  fontFamily: 'Lato',
+               	  overflow: 'hidden',
                   backgroundColor: 'transparent',
                   height: 36,
                   width: 260,
@@ -233,45 +237,58 @@ class App extends React.Component {
       }
       else {
         return (
-         <div
-           onMouseUp={this.onMouseUp}
-           id={"hello"}
-           style={{
-             width: '50%',
-             height: '100%',
-             margin: 'auto',
-             marginTop: '2%',
-             fontSize: 16,
-             fontFamily: 'Georgia',
-             letterSpacing: '0.05em',
-             lineHeight: '1.5em',
-          }}>
-             {this.openPopover()}
-             {renderArticle()}
-             {this.renderSetupModal()}
-             <div style={{
-               display: 'flex',
-               justifyContent: 'center',
-             }}>
-               <button
-                 type="button"
-                 onClick = {() => {this.setState({
-                   page: true
-                 })}}
-                 style={{
-                   width: 200,
-                   fontSize: 16,
-                   backgroundColor: 'transparent',
-                   borderColor: 'black',
-                   borderRadius: 4,
-                   borderWidth: 1,
-                   height: 40,
-                   cursor: 'pointer'
-                 }}
-               >
-                Submit Reactions!
-               </button>
-             </div>
+        <div style = {{
+        	fontFamily: "Lato"
+        }}>
+        	 <div style = {{
+        	 	position: "fixed",
+    			marginLeft: 40,
+        	 }}
+        	 >
+        	 <img src = "./images/logo.png" width = "110" height="110"/>
+        	 </div>
+	         
+	         <div
+	           onMouseUp={this.onMouseUp}
+	           id={"hello"}
+	           style={{
+	             width: '50%',
+	             height: '100%',
+	             margin: 'auto',
+	             marginTop: '2%',
+	             fontSize: 16,
+	             fontFamily: 'Lato',
+	             letterSpacing: '0.05em',
+	             lineHeight: '1.5em',
+	          }}>
+	             {this.openPopover()}
+	             {renderArticle()}
+	             {this.renderSetupModal()}
+	             <div style={{
+	               display: 'flex',
+	               justifyContent: 'center',
+	             }}>
+	               <button
+	                 type="button"
+	                 onClick = {() => {this.setState({
+	                   page: true
+	                 })}}
+	                 style={{
+	                   width: 200,
+	                   fontSize: 16,
+	                   fontFamily: 'Lato',
+	                   backgroundColor: 'transparent',
+	                   borderColor: 'black',
+	                   borderRadius: 4,
+	                   borderWidth: 1,
+	                   height: 40,
+	                   cursor: 'pointer'
+	                 }}
+	               >
+	                Submit Reactions!
+	               </button>
+	             </div>
+	         </div>
          </div>
         );
       }

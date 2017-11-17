@@ -64,7 +64,7 @@ class SmallStats extends React.Component {
 							margin: 'auto',
 							marginTop: '2%',
 							fontSize: 32,
-							fontFamily: 'Georgia',
+							fontFamily: 'Lato',
 							letterSpacing: '0.05em',
 							lineHeight: '1.5em',
 						}}>
@@ -110,8 +110,8 @@ class SmallStats extends React.Component {
 						<div style={{
 							width: '70%',
 							margin: '0px auto',
-							fontSize: 20,
-							fontFamily: 'Georgia',
+							fontSize: 17,
+							fontFamily: 'Lato',
 						}}>
 							<div>
 								<strong>Me:</strong> <a target="_blank" href="https://nypost.com/2017/10/26/house-passes-4-trillion-budget-clears-way-for-trump-tax-plan/-">Article By New York Post</a>
@@ -169,7 +169,7 @@ class SmallStats extends React.Component {
 							margin: 'auto',
 							marginTop: '2%',
 							fontSize: 32,
-							fontFamily: 'Georgia',
+							fontFamily: 'Lato',
 							letterSpacing: '0.05em',
 							lineHeight: '1.5em',
 						}}>
@@ -183,11 +183,11 @@ class SmallStats extends React.Component {
               marginTop: '2%',
 							marginBottom: '2%',
               fontSize: 16,
-              fontFamily: 'Georgia',
+              fontFamily: 'Lato',
               letterSpacing: '0.05em',
               lineHeight: '1.5em',
 						}}>
-							Congrats! Your entire group has finished reading the top article of today. Todays topic was about "Syria Signs Paris Climate Accord, U.S. Only Country Opposed" and today you were assigned a Left leaning article from huffingtonpost. Below are the total stats on how you and your friends reacted to your article! Click on a reaction to see what your friends reacted to!
+							Congrats! Your entire group has finished reading the top article of today. Todays topic was about "House passes $4 trillion budget, clears way for Trump tax plan" and today you were assigned a Right leaning article from The New York Post. Below are the total stats on how you and your friends reacted to your article! Click on a reaction to see what your friends reacted to!
 						</div>
 						<div style={{
 							borderColor: 'black',
@@ -197,6 +197,7 @@ class SmallStats extends React.Component {
 							width: 220,
 							padding: 24,
 							margin: '0px auto',
+							fontFamily: 'Lato',
 						}}>
 							<div style={{
 								display: 'flex',

@@ -4,7 +4,8 @@ export function renderArticle() {
     <div>
          <div style={{
            fontWeight: 'bold',
-           fontSize: 24,
+           lineHeight: 1.1,
+           fontSize: 40,
          }}>
           House passes $4 trillion budget, clears way for Trump tax plan
          </div>
