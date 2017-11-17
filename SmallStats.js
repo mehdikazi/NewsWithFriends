@@ -138,6 +138,17 @@ class SmallStats extends React.Component {
 									</li>
 								</ul>
 							</div>
+							<div style = {{
+								display: "flex",
+    						justifyContent: "center",
+							}}>
+							<img src="images/return.svg" style={{
+								width:50,
+								height:50,
+							}}
+							onClick={() => {this.props.onClickStatReactions(false)}}
+							/>
+							</div>
 						</div>
 					</div>
 				);
@@ -337,45 +348,34 @@ class SmallStats extends React.Component {
 									}}>
 										{currState.angry.length + currState.centerUser.angry.length + currState.rightUser.angry.length}
 									</div>
+
 								</div>
 							</div>
 							<div style={{
 								display: 'flex',
 								justifyContent: 'center',
 							}}>
-								<button
-									type="button"
-									onClick={() => {this.props.onClickStatReactions('like')}}
-									style={{
-										width: 80,
-										fontSize: 12,
-										backgroundColor: 'transparent',
-										borderColor: 'black',
-										borderRadius: 4,
-										borderWidth: 1,
-										height: 28,
-										marginTop: 20,
-										marginBottom: -12,
-										cursor: 'pointer',
-									}}
-								>
-								 More Stats!
-								</button>
 							</div>
+
 						</div>
+							<div style = {{
+								display: "flex",
+								justifyContent: "center",
+							}}>
+							<img src="images/return.svg" style={{
+								width:50,
+								height:50,
+								marginTop: 10
+							}}
+							onClick={() => {this.props.backToMain()}}
+							/>
+							</div>
 					</div>
 				);
 			}
 
 	}
 }
-// <div>
-// 	like {currState.like.length + currState.centerUser.like.length + currState.rightUser.like.length}
-// 	love {currState.love.length + currState.centerUser.love.length + currState.rightUser.love.length}
-// 	haha {currState.haha.length + currState.centerUser.haha.length + currState.rightUser.haha.length}
-// 	wow {currState.wow.length + currState.centerUser.wow.length + currState.rightUser.wow.length}
-// 	sad {currState.sad.length + currState.centerUser.sad.length + currState.rightUser.sad.length}
-// 	angry {currState.angry.length + currState.centerUser.angry.length + currState.rightUser.angry.length}
-// </div>
+
 
 export default SmallStats;

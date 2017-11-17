@@ -50,6 +50,7 @@ class App extends React.Component {
      this.apiCall = this.apiCall.bind(this);
      this.onClickStatReactions = this.onClickStatReactions.bind(this);
      this.renderSetupModal = this.renderSetupModal.bind(this);
+     this.backToMain = this.backToMain.bind(this)
    }
 
   selectText() {
@@ -214,12 +215,19 @@ class App extends React.Component {
      });
    }
 
+   backToMain() {
+     this.setState({
+       page: false
+     });
+   }
+
    render() {
       if (this.state.page) {
         return (
           <SmallStats
             appState={this.state}
             onClickStatReactions={this.onClickStatReactions}
+            backToMain={this.backToMain}
           />
           );
       }
