@@ -81,6 +81,7 @@ class SmallStats extends React.Component {
 								<img src="images/back.svg" style={{
 									width:50,
 									height:50,
+                                    cursor: 'pointer',
 								}}
 								onClick={() => {this.props.onClickStatReactions(this.state.reactionSet[prevIndex])}}
 								/>
@@ -100,6 +101,7 @@ class SmallStats extends React.Component {
 								<img src="images/next.svg" style={{
 									width:50,
 									height:50,
+                                    cursor: 'pointer',
 								}}
 								onClick={() => {this.props.onClickStatReactions(this.state.reactionSet[prevIndex])}}
 								/>
@@ -112,7 +114,7 @@ class SmallStats extends React.Component {
 							fontFamily: 'Georgia',
 						}}>
 							<div>
-								<strong>Me:</strong> <a target="_blank" href="https://www.huffingtonpost.com/entry/syria-paris-agreement_us_5a01b87fe4b0368a4e86ed4d">Article By Huffingtonpost</a>
+								<strong>Me:</strong> <a target="_blank" href="https://nypost.com/2017/10/26/house-passes-4-trillion-budget-clears-way-for-trump-tax-plan/-">Article By New York Post</a>
 								<ul>
 									<li>{currState[currState.reactionSelected].map(function(listValue){
 											return <li>{listValue}</li>;
@@ -121,7 +123,7 @@ class SmallStats extends React.Component {
 								</ul>
 							</div>
 							<div>
-								<strong>Rochelle:</strong> <a target="_blank" href="http://www.bbc.com/news/world-middle-east-41904650">Article By BBC</a>
+								<strong>Rochelle:</strong> <a target="_blank" href="http://www.businessinsider.com/trump-tax-reform-plan-house-vote-senate-budget-resolution-salt-deduction-2017-10">Article By Business Insider</a>
 								<ul>
 									<li>{currState.centerUser[currState.reactionSelected].map(function(listValue){
 											return <li>{listValue}</li>;
@@ -130,7 +132,7 @@ class SmallStats extends React.Component {
 								</ul>
 							</div>
 							<div>
-								<strong>Jessica:</strong> <a target="_blank" href="http://www.washingtonexaminer.com/syria-joins-paris-climate-deal-leaving-us-as-the-only-country-opposed/article/2639852">Article By Washington Examiner</a>
+								<strong>Jessica:</strong> <a target="_blank" href="https://www.nytimes.com/2017/10/25/us/politics/republican-party-tax-cuts.html?_r=0">Article By New York Times</a>
 								<ul>
 									<li>{currState.rightUser[currState.reactionSelected].map(function(listValue){
 											return <li>{listValue}</li>;
