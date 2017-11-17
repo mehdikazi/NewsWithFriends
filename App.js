@@ -1,7 +1,8 @@
 import React from 'react';
 import { FacebookSelector } from './react-reactions/src/components/facebook/FacebookSelector.js';
 import ReactModal from 'react-modal';
-import SmallStats from './SmallStats.js'
+import SmallStats from './SmallStats.js';
+import {renderArticle} from './renderArticle';
 
 
 class App extends React.Component {
@@ -10,6 +11,7 @@ class App extends React.Component {
      super();
      this.state = {
        page: false,
+       intialSetup: true,
        selected: false,
        reactionSelected: false,
        isOpen: false,
@@ -46,8 +48,9 @@ class App extends React.Component {
      this.getReactions = this.getReactions.bind(this);
      this.openPopover = this.openPopover.bind(this);
      this.apiCall = this.apiCall.bind(this);
-     this.renderArticle = this.renderArticle.bind(this);
      this.onClickStatReactions = this.onClickStatReactions.bind(this);
+     this.renderSetupModal = this.renderSetupModal.bind(this);
+     this.backToMain = this.backToMain.bind(this)
    }
 
   selectText() {
@@ -90,10 +93,10 @@ class App extends React.Component {
        isOpen: !this.state.isOpen,
      });
    }
-
-   componentDidMount() {
-     alert("Try highlighting part of the article!");
-   }
+   //
+   // componentDidMount() {
+   //   alert("Try highlighting part of the article!");
+   // }
 
    getReactions() {
       return (
@@ -111,6 +114,62 @@ class App extends React.Component {
           }}
         />
       )
+   }
+
+   renderSetupModal() {
+     return (
+       <div>
+          <ReactModal
+              isOpen={this.state.intialSetup}
+              onRequestClose={() => {
+                this.setState({isOpen: false});
+              }}
+              style={{
+                content: {
+                  height: 200,
+                  width: 500,
+                  position: 'absolute',
+                  marginLeft: 'auto',
+                  marginRight: 'auto',
+                  marginTop: 90,
+                }
+              }}
+          >
+            <div style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+            }}>
+              How to start:
+              <ol>
+                <li>Highlight a sentence with your mouse</li>
+                <li>Select a reaction</li>
+                <li>Repeat!</li>
+                <li>Submit your reactions and see how your friends feel about their article on the topic!</li>
+              </ol>
+              <button
+                type="button"
+                onClick = {() => {this.setState({
+                  intialSetup: false
+                })}}
+                style={{
+                  width: 200,
+                  fontSize: 16,
+                  backgroundColor: 'transparent',
+                  borderColor: 'black',
+                  borderRadius: 4,
+                  borderWidth: 1,
+                  height: 40,
+                  cursor: 'pointer',
+                  marginTop: 24,
+                }}
+              >
+               Sounds Good!
+              </button>
+            </div>
+          </ReactModal>
+       </div>
+     )
    }
 
    openPopover() {
@@ -220,12 +279,19 @@ class App extends React.Component {
      });
    }
 
+   backToMain() {
+     this.setState({
+       page: false
+     });
+   }
+
    render() {
       if (this.state.page) {
         return (
           <SmallStats
             appState={this.state}
             onClickStatReactions={this.onClickStatReactions}
+            backToMain={this.backToMain}
           />
           );
       }
@@ -245,7 +311,8 @@ class App extends React.Component {
              lineHeight: '1.5em',
           }}>
              {this.openPopover()}
-             {this.renderArticle()}
+             {renderArticle()}
+             {this.renderSetupModal()}
              <div style={{
                display: 'flex',
                justifyContent: 'center',
