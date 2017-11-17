@@ -237,7 +237,7 @@ class App extends React.Component {
            onMouseUp={this.onMouseUp}
            id={"hello"}
            style={{
-             width: '70%',
+             width: '50%',
              height: '100%',
              margin: 'auto',
              marginTop: '2%',

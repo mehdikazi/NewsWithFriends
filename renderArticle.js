@@ -21,10 +21,18 @@ export function renderArticle() {
 
           </div>
          <br></br>
+      
+         <div><img src="images/gop-house.jpg" style={{
+            width: '100%',
+          }}/> 
+         </div>
+         
+         <br></br>
 
          <div style={{
            textIndent: 50,
          }}>
+
             “By passing this budget today, we can send a clear message to the American people: Real tax reform is on the way,” said Rep. Kevin Brady (R-Texas).
 
             The budget vote opened a process called reconciliation that will allow the upcoming tax reform legislation to pass the Senate with a simple majority vote — and without any Democrats.
