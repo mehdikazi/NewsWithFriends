@@ -367,7 +367,8 @@ class SmallStats extends React.Component {
 							<img src="images/return.svg" style={{
 								width:50,
 								height:50,
-								marginTop: 10
+								marginTop: 10,
+                                cursor: 'pointer',              
 							}}
 							onClick={() => {this.props.backToMain()}}
 							/>
