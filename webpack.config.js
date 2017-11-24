@@ -7,7 +7,8 @@ var APP_DIR = path.resolve(__dirname, './');
 const config = {
    entry: [
     './main.js',
-    './app.css',
+    './client/css/app.css',
+    './client/css/article.css',
   ],
 
    output: {
