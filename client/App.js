@@ -134,6 +134,7 @@ class App extends React.Component {
             marginRight: 'auto',
             marginTop: 90,
             overflow: 'hidden',
+            fontFamily: 'Lato',
           }
         }}
       >
@@ -164,6 +165,7 @@ class App extends React.Component {
             height: 40,
             cursor: 'pointer',
             marginTop: 24,
+            fontFamily: 'Lato',
           }}
           >
             Sounds Good!

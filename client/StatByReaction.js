@@ -42,6 +42,7 @@ class StatByReaction extends React.Component {
         width: "50%",
         padding: 24,
         margin: '0px auto',
+        fontFamily: 'Lato',
       }}>
         {toggleButton}
         <div style={{
@@ -53,6 +54,7 @@ class StatByReaction extends React.Component {
           margin: 'auto',
           marginTop: '2%',
           letterSpacing: '0.05em',
+          fontFamily: 'Lato',
         }}>
           {this.props.reactionSelected.toUpperCase()}
         </div>
@@ -100,7 +102,7 @@ class StatByReaction extends React.Component {
           width: '70%',
           margin: '0px auto',
           fontSize: 20,
-          fontFamily: 'Georgia',
+          fontFamily: 'Lato',
         }}>
           <StatByReactionByUser
             name={'Me'}

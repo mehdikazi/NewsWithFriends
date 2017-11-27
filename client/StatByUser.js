@@ -71,7 +71,7 @@ class StatByUser extends React.Component {
           width: '70%',
           margin: '0px auto',
           fontSize: 20,
-          fontFamily: 'Georgia',
+          fontFamily: 'Lato',
         }}>
           <StatByUserByReaction
             name={'Like'}

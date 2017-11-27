@@ -54,7 +54,7 @@ class StatChart extends React.Component {
             margin: 'auto',
             marginTop: '2%',
             fontSize: 32,
-            fontFamily: 'Georgia',
+            fontFamily: 'Lato',
             letterSpacing: '0.05em',
             lineHeight: '1.5em',
           }}
@@ -70,7 +70,7 @@ class StatChart extends React.Component {
             marginTop: '2%',
             marginBottom: '2%',
             fontSize: 16,
-            fontFamily: 'Georgia',
+            fontFamily: 'Lato',
             letterSpacing: '0.05em',
             lineHeight: '1.5em',
           }}

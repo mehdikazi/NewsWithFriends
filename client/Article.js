@@ -16,7 +16,7 @@ class Article extends React.Component {
     return (
       <div onMouseUp={this.props.onMouseUp}
         style={{
-          width: '70%',
+          width: '55%',
           height: '100%',
           margin: 'auto',
           marginTop: '2%',
@@ -30,8 +30,10 @@ class Article extends React.Component {
         </div>
         <br></br>
         October 26, 2017 | 11:19am
+        <br></br>
+        <br></br>
         <div style={style.paragraph}>
-         WASHINGTON — House Republicans on Thursday narrowly adopted the Senate’s $4 trillion budget blueprint, despite grumblings about the impact on the deficit and the elimination of state and local tax deductions.With 20 Republicans joining all Democrats in voting no, the budget passed 216-212.The House had already passed its own budget that directed upcoming tax reform legislation to be deficit-neutral. But to speed up the process toward their ultimate goal of tax cuts, the House passed the Senate plan that would allow tax cuts to add $1.5 trillion to the deficit.
+         <strong>WASHINGTON</strong> — House Republicans on Thursday narrowly adopted the Senate’s $4 trillion budget blueprint, despite grumblings about the impact on the deficit and the elimination of state and local tax deductions.With 20 Republicans joining all Democrats in voting no, the budget passed 216-212.The House had already passed its own budget that directed upcoming tax reform legislation to be deficit-neutral. But to speed up the process toward their ultimate goal of tax cuts, the House passed the Senate plan that would allow tax cuts to add $1.5 trillion to the deficit.
         </div>
         <br></br>
         <div>
