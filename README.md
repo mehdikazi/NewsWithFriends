@@ -1,1 +1,36 @@
 # NewsWithFriends
+
+# Files
+- App.js
+  - Inital rendered component
+  - Renders popovers
+  - Handles Select and highlight logic
+  - Renders Article 
+- Article.js
+  - Holds Article information 
+  - Holds transition logic to StatChart
+- StatChart.js
+  - First page rendered after article reactions are submitted 
+  - Holds stat chart
+  - Holds transition logic to StatByReaction
+- StatChartReaction.js
+  - The component StartChart is made from 
+  - Logic for a single reaction image and the total number of that reaction made 
+  - 6 of these make up the StatChart data
+- StatByReaction.js
+  - Second page rendered after article reactions are submitted
+  - Holds the logic to see all the comments by Reaction
+  - Holds transition logic to go to StatByUser
+  - Holds prevPage logic to go to StatChart
+- StatByReactionByUser.js
+  - The component StatByReaction is made from 
+  - Each of these represents a user and their comments in bullet point format 
+  - Three of these make up the contnent of StatByReaction 
+- StatByUser.js
+  - Third page rendered after article reactions are submitted (toggle back and forth from StatByReaction)
+  - Holds the logic to see all the comments by User
+  - Holds prevPage logic to go to StatChart (passed in from StatByReaction) 
+- StatByUserByReaction.js
+  - The component StatByUser is made from 
+  - Each of these represents a reaction and its comments for a particular user in bullet point format
+  - 6 of these make up the content of StatByUser
