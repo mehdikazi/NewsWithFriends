@@ -11,14 +11,14 @@ class App extends React.Component {
   render() {
     return (
       <div style = {{
-          fontFamily: "Lato"
+          fontFamily: "Lato",
         }}>
           <div style = {{
             position: "fixed",
             marginLeft: 40,
            }}>
-           <img src = "./images/logo.png" width = "110" height="110"/>
-        </div>
+           <img src = "./client/images/logo.png" width = "110" height="110"/>
+          </div>
       <div>
         {this.openReactPopover()}
         {this.renderSetupModal()}
@@ -29,6 +29,7 @@ class App extends React.Component {
           rightUser={this.state.rightUser}
         />
       </div>
+    </div>
     );
   }
 
@@ -51,22 +52,22 @@ class App extends React.Component {
         angry: [],
       },
       centerUser: {
-         like: ["Passing the Senate budget resolution was key for tax reform because the measure includes instructions for budget reconciliation."],
-         love: [],
-         haha: [],
-         wow: ["Every Democrat voted against the bill, along with 20 Republicans.", "But Republicans from high-tax states like California, New York, and Massachusetts, where many people take the deduction, expressed last-minute concerns about the elimination of the deduction"],
-         sad: ["Today is a historic day — and we are ready to deliver tax relief that improves the lives of middle-income Americans and struggling families who have been left behind in our slow-growing economy,"],
-         angry: ["Big news - Budget just passed! Trump said."]
-       },
-       rightUser: {
-         like: [],
-         love: [],
-         haha: ["Republicans struggled on Wednesday with key parts of their plan"],
-         wow: ["A failure on taxes, after the Republicans did not succeed in repealing the Affordable Care Act, could jeopardize its congressional majorities in the 2018 midterms.", "Republicans were not especially unified in support of tax cuts,"],
-         sad: ["Finding common ground will only get more difficult as the effects of specific tax changes on constituents become clearer."],
-         angry: ["The budget resolution that is supposed to win final approval on Thursday would allow for $1.5 trillion in additional deficits from tax cuts over the next decade, but the proposed tax cuts already revealed would cost well over $2 trillion.", "Cutting rates unifies Republicans."]
-       }
-    };
+        like: ["Passing the Senate budget resolution was key for tax reform because the measure includes instructions for budget reconciliation."],
+        love: [],
+        haha: [],
+        wow: ["Every Democrat voted against the bill, along with 20 Republicans.", "But Republicans from high-tax states like California, New York, and Massachusetts, where many people take the deduction, expressed last-minute concerns about the elimination of the deduction"],
+        sad: ["Today is a historic day — and we are ready to deliver tax relief that improves the lives of middle-income Americans and struggling families who have been left behind in our slow-growing economy,"],
+        angry: ["Big news - Budget just passed! Trump said."]
+      },
+      rightUser: {
+        like: [],
+        love: [],
+        haha: ["Republicans struggled on Wednesday with key parts of their plan"],
+        wow: ["A failure on taxes, after the Republicans did not succeed in repealing the Affordable Care Act, could jeopardize its congressional majorities in the 2018 midterms.", "Republicans were not especially unified in support of tax cuts,"],
+        sad: ["Finding common ground will only get more difficult as the effects of specific tax changes on constituents become clearer."],
+        angry: ["The budget resolution that is supposed to win final approval on Thursday would allow for $1.5 trillion in additional deficits from tax cuts over the next decade, but the proposed tax cuts already revealed would cost well over $2 trillion.", "Cutting rates unifies Republicans."]
+      }
+    }
     this.selectText = this.selectText.bind(this);
     this.getReactions = this.getReactions.bind(this);
     this.openReactPopover = this.openReactPopover.bind(this);
