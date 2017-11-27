@@ -22,10 +22,16 @@ class StatByReaction extends React.Component {
           ? this.props.centerUser
           : this.props.rightUser
         );
+      const currentUserImage = this.state.userSelected == 'Me'
+        ? "./client/images/like.svg"
+        : (this.state.userSelected == 'Rochelle'
+          ? "./client/images/rochelle.png"
+          : "./client/images/jessica.png"
+        );
       return (
         <StatByUser
           userSelected={this.state.userSelected}
-          fileName={"./client/images/like.svg"}
+          fileName={currentUserImage}
           prevUser={this.prevUser}
           nextUser={this.nextUser}
           userReactions={currentUserReactions}
