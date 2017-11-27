@@ -11,8 +11,8 @@ class StatChart extends React.Component {
           width: 50,
           height: 50,
           position: 'absolute',
-          top: 0,
-          left: 0,
+          top: 10,
+          left: '23%',
           marginLeft: '2%',
         }}
         onClick={() => {this.setState({goToByReaction: false})}}
@@ -75,7 +75,7 @@ class StatChart extends React.Component {
             lineHeight: '1.5em',
           }}
         >
-          Congrats! Your entire group has finished reading the top article of today. Todays topic was about "Syria Signs Paris Climate Accord, U.S. Only Country Opposed" and today you were assigned a Left leaning article from huffingtonpost. Below are the total stats on how you and your friends reacted to your article! Click on a reaction to see what your friends reacted to!
+          Congrats! Your entire group has finished reading the top article of today. Todays topic was about "House passes $4 trillion budget, clears way for Trump tax plan" and today you were assigned a Right leaning article from New York Post. Below are the total stats on how you and your friends reacted to your article! Click on a reaction to see what your friends reacted to!
         </div>
         <div style={{
           borderColor: 'black',

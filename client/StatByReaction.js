@@ -106,20 +106,20 @@ class StatByReaction extends React.Component {
         }}>
           <StatByReactionByUser
             name={'Me'}
-            articleLink={'https://www.huffingtonpost.com/entry/syria-paris-agreement_us_5a01b87fe4b0368a4e86ed4d'}
-            articleSrc={'Huffingtonpost'}
+            articleLink={'https://nypost.com/2017/10/26/house-passes-4-trillion-budget-clears-way-for-trump-tax-plan/'}
+            articleSrc={'New York Post - Right Leaning'}
             listOfReactions={this.props.currentUser[this.props.reactionSelected]}
           />
           <StatByReactionByUser
             name={'Rochelle'}
-            articleLink={'http://www.bbc.com/news/world-middle-east-41904650'}
-            articleSrc={'BBC'}
+            articleLink={'http://www.businessinsider.com/trump-tax-reform-plan-house-vote-senate-budget-resolution-salt-deduction-2017-10'}
+            articleSrc={'Business Insider - Center Leaning'}
             listOfReactions={this.props.centerUser[this.props.reactionSelected]}
           />
           <StatByReactionByUser
             name={'Jessica'}
-            articleLink={'http://www.washingtonexaminer.com/syria-joins-paris-climate-deal-leaving-us-as-the-only-country-opposed/article/2639852'}
-            articleSrc={'Washington Examiner'}
+            articleLink={'https://www.nytimes.com/2017/10/25/us/politics/republican-party-tax-cuts.html'}
+            articleSrc={'New York Times - Left Leaning'}
             listOfReactions={this.props.rightUser[this.props.reactionSelected]}
           />
         </div>
