@@ -23,7 +23,7 @@ class StatByReaction extends React.Component {
           : this.props.rightUser
         );
       const currentUserImage = this.state.userSelected == 'Me'
-        ? "./client/images/like.svg"
+        ? "./client/images/mehdi.png"
         : (this.state.userSelected == 'Rochelle'
           ? "./client/images/rochelle.png"
           : "./client/images/jessica.png"
